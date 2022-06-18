@@ -128,8 +128,8 @@ public class PlayerInput : MonoBehaviour
             _gameManager.IsPaused = true;
             _gameManager.PauseGame();
             _uiManager.InMenu = true;
-            _uiManager.GameMenuBackground.SetActive(true);
-            _uiManager.GameMainMenu.SetActive(true);
+            _uiManager.MenuBackground.SetActive(true);
+            _uiManager.MainMenu.SetActive(true);
         }
     }
 

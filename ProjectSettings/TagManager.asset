@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TGL_DoubleJump
+  - TGL_CoyoteTime
+  - TGL_JumpBuffer
+  - TGL_WallJump
+  - TGL_WallSlide
+  - MainMenu
+  - OptionsMenu
+  - Background_UI
   layers:
   - Default
   - TransparentFX

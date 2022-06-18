@@ -9,9 +9,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
-    [SerializeField] private GameObject _gameMainMenu;
-    [SerializeField] private GameObject _gameOptionsMenu;
-    [SerializeField] private GameObject _gameMenuBackground;
+    [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private GameObject _optionsMenu;
+    [SerializeField] private GameObject _menuBackground;
     [SerializeField] private Toggle _coyoteToggle;
     [SerializeField] private Toggle _doubleJumpToggle;
     [SerializeField] private Toggle _wallSlideToggle;
@@ -20,9 +20,9 @@ public class UIManager : MonoBehaviour
     private GameManager _gameManager;
     private bool _inMenu;
 
-    public GameObject GameMainMenu { get { return _gameMainMenu; } }
-    public GameObject GameOptionsMenu { get { return _gameOptionsMenu; } }
-    public GameObject GameMenuBackground { get { return _gameMenuBackground; } }
+    public GameObject MainMenu { get { return _mainMenu; } }
+    public GameObject OptionsMenu { get { return _optionsMenu; } }
+    public GameObject MenuBackground { get { return _menuBackground; } }
     public bool InMenu { get { return _inMenu; } set { _inMenu = value; } }
 
     void Awake()
@@ -34,43 +34,66 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        _gameManager = FindObjectOfType<GameManager>();
+        GetReferences();
         _inMenu = false;
-        _coyoteToggle.isOn = _gameManager.CanCoyoteJump;
-        _doubleJumpToggle.isOn = _gameManager.CanDoubleJump;
-        _wallSlideToggle.isOn = _gameManager.CanWallSlide;
-        _wallJumpToggle.isOn = _gameManager.CanWallJump;
-        _jumpBufferToggle.isOn = _gameManager.JumpBufferOn;
     }
 
+    // Level
     public void Resume()
     {
-        _gameMainMenu.SetActive(false);
-        _gameMenuBackground.SetActive(false);
+        _mainMenu.SetActive(false);
+        _menuBackground.SetActive(false);
         _inMenu = false;
         _gameManager.IsPaused = false;
         _gameManager.PauseGame();
     }
 
-    public void BackToMainMenu()
+    public void BackToMainMenuScene()
     {
         _inMenu = false;
         _gameManager.IsPaused = false;
         _gameManager.PauseGame();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadSceneAsync("MainMenu");
+        GetReferences();
     }
 
     public void ToOptionsMenu()
     {
-        _gameMainMenu.SetActive(false);
-        _gameOptionsMenu.SetActive(true);
+        _mainMenu.SetActive(false);
+        _optionsMenu.SetActive(true);
     }
 
     public void BackToGameMenu()
     {
-        _gameOptionsMenu.SetActive(false);
-        _gameMainMenu.SetActive(true);
+        _optionsMenu.SetActive(false);
+        _mainMenu.SetActive(true);
     }
+    // Level End
+
+    // MainMenu
+    public void PlayGame()
+    {
+        SceneManager.LoadSceneAsync("LevelOne");
+        GetReferences();
+    }
+
+    //public void ToMainOptionsMenu()
+    //{
+    //    _mainMenu.SetActive(false);
+    //    _optionsMenu.SetActive(true);
+    //}
+
+    public void BackToMainMenu()
+    {
+        _optionsMenu.SetActive(false);
+        _mainMenu.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    // MainMenu End
 
     public void ChangeCoyoteValue(bool value)
     {
@@ -97,5 +120,45 @@ public class UIManager : MonoBehaviour
     {
         _gameManager.JumpBufferOn = value;
 
+    }
+
+    private void GetReferences()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
+        _mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
+        _optionsMenu = GameObject.FindGameObjectWithTag("OptionsMenu");
+        _optionsMenu.SetActive(false);
+        _menuBackground = GameObject.FindGameObjectWithTag("Background_UI");
+
+        Toggle[] tglArr = FindObjectsOfType<Toggle>();
+        
+        foreach (Toggle t in tglArr)
+        {
+            switch (t.name)
+            {
+                case "TGL_DoubleJump":
+                    _doubleJumpToggle = t;
+                    _doubleJumpToggle.isOn = _gameManager.CanDoubleJump;
+                    break;
+                case "TGL_CoyoteTime":
+                    _coyoteToggle = t;
+                    _coyoteToggle.isOn = _gameManager.CanCoyoteJump;
+                    break;
+                case "TGL_JumpBuffer":
+                    _jumpBufferToggle = t;
+                    _jumpBufferToggle.isOn = _gameManager.JumpBufferOn;
+                    break;
+                case "TGL_WallJump":
+                    _wallJumpToggle = t;
+                    _wallJumpToggle.isOn = _gameManager.CanWallJump;
+                    break;
+                case "TGL_WallSlide":
+                    _wallSlideToggle = t;
+                    _wallSlideToggle.isOn = _gameManager.CanWallSlide;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

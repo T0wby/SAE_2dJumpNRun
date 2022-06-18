@@ -22,7 +22,6 @@ namespace Manager
 
         private void Start()
         {
-            FindObjectOfType<MenuManager>().Initialize();
         }
     }
 }
