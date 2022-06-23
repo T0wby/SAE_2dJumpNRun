@@ -12,6 +12,7 @@ TagManager:
   - MainMenu
   - OptionsMenu
   - Background_UI
+  - OptionsMenuGame
   layers:
   - Default
   - TransparentFX
