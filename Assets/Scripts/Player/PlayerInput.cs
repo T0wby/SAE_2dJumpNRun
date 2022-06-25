@@ -104,16 +104,13 @@ public class PlayerInput : MonoBehaviour
         }
         else if (context.started && _doubleJump)
         {
-            Jump();
             _doubleJump = false;
+            Jump();
         }
         else if (context.started && _jumpBufferCounter <= 0 && _GameSettings.jumpBufferToggle)
         {
             _jumpBufferCounter = _JumpBufferTime;
             _jumpBufferCountdown = true;
-
-            if (_GameSettings.doubleJumpToggle)
-                _doubleJump = true;
         }
 
         _longJump = context.performed;
@@ -217,9 +214,10 @@ public class PlayerInput : MonoBehaviour
 
             if (_jumpBufferCounter > 0 && IsGrounded())
             {
-                Debug.Log("Buffer");
                 Jump();
                 _jumpBufferCountdown = false;
+                if (_GameSettings.doubleJumpToggle)
+                    _doubleJump = true;
             }
         }
         
