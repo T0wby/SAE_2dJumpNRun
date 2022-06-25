@@ -323,6 +323,10 @@ MonoBehaviour:
   _fallMultiplier: 2.5
   _lowJumpMultiplier: 2
   _wallSlidingSpeed: 20
+  _wallJumpForceX: 0
+  _wallJumpForceY: 0
+  _wallJumpTime: 0.2
+  _JumpBufferTime: 0.5
   _feetCollider: {fileID: 1851038608835680514}
   _rightCollider: {fileID: 2601617260271296438}
   _leftCollider: {fileID: 6362994757933215981}
@@ -331,7 +335,8 @@ MonoBehaviour:
     m_Bits: 64
   _wallLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  _GameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
 --- !u!1 &8639958012912207806
 GameObject:
   m_ObjectHideFlags: 0

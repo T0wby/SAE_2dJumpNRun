@@ -12,12 +12,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _menuBackground;
-    private Toggle _coyoteToggle;
-    private Toggle _doubleJumpToggle;
-    private Toggle _wallSlideToggle;
-    private Toggle _wallJumpToggle;
-    private Toggle _jumpBufferToggle;
-    private GameManager _gameManager;
+    [SerializeField] private Toggle _coyoteToggle;
+    [SerializeField] private Toggle _doubleJumpToggle;
+    [SerializeField] private Toggle _wallSlideToggle;
+    [SerializeField] private Toggle _wallJumpToggle;
+    [SerializeField] private Toggle _jumpBufferToggle;
+    [SerializeField] private SO_GameSettings _GameSettings;
     private bool _inMenu;
 
     public GameObject MainMenu { get { return _mainMenu; } }
@@ -35,10 +35,13 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
 
-        GetReferences();
         _inMenu = false;
+    }
+
+    private void Start()
+    {
+        SetGameSettings();
     }
 
 
@@ -58,7 +61,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.IsPaused = false;
         GameManager.Instance.PauseGame();
         SceneManager.LoadSceneAsync("MainMenu");
-        GetReferences();
+        SetGameSettings();
     }
 
     public void ToOptionsMenu()
@@ -78,7 +81,6 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync("LevelOne");
-        GetReferencesLevelOne();
     }
 
     public void BackToMainMenu()
@@ -95,58 +97,61 @@ public class UIManager : MonoBehaviour
 
     public void ChangeCoyoteValue(bool value)
     {
-        //_gameManager.CanCoyoteJump = value;
-        GameManager.Instance.CanCoyoteJump = value;
+        _GameSettings.coyoteToggle = value;
     }
 
     public void ChangeDoubleJumpValue(bool value)
     {
-        //_gameManager.CanDoubleJump = value;
-        GameManager.Instance.CanDoubleJump = value;
+        _GameSettings.doubleJumpToggle = value;
     }
 
     public void ChangeWallSlideValue(bool value)
     {
-        //_gameManager.CanWallSlide = value;
-        GameManager.Instance.CanWallSlide = value;
+        _GameSettings.wallSlideToggle = value;
     }
 
     public void ChangeWallJumpValue(bool value)
     {
-        //_gameManager.CanWallJump = value;
-        GameManager.Instance.CanWallJump = value;
+        _GameSettings.wallJumpToggle = value;
     }
 
     public void ChangeJumpBufferValue(bool value)
     {
-        //_gameManager.JumpBufferOn = value;
-        GameManager.Instance.JumpBufferOn = value;
-
+        _GameSettings.jumpBufferToggle = value;
     }
 
-    private void GetReferences()
+    //private void GetReferences()
+    //{
+    //    _doubleJumpToggle = GameObject.FindGameObjectWithTag("TGL_DoubleJump").GetComponent<Toggle>();
+    //    _coyoteToggle = GameObject.FindGameObjectWithTag("TGL_CoyoteTime").GetComponent<Toggle>();
+    //    _jumpBufferToggle = GameObject.FindGameObjectWithTag("TGL_JumpBuffer").GetComponent<Toggle>();
+    //    _wallJumpToggle = GameObject.FindGameObjectWithTag("TGL_WallJump").GetComponent<Toggle>();
+    //    _wallSlideToggle = GameObject.FindGameObjectWithTag("TGL_WallSlide").GetComponent<Toggle>();
+
+    //    _mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
+    //    _optionsMenu = GameObject.FindGameObjectWithTag("OptionsMenu");
+    //    _optionsMenu.SetActive(false);
+    //    _menuBackground = GameObject.FindGameObjectWithTag("Background_UI");
+
+    //}
+
+    //private void GetReferencesLevelOne()
+    //{
+    //    _mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
+    //    _optionsMenu = GameObject.FindGameObjectWithTag("OptionsMenuGame");
+    //    _menuBackground = GameObject.FindGameObjectWithTag("Background_UI");
+
+    //    _mainMenu.SetActive(false);
+    //    _optionsMenu.SetActive(false);
+    //    _menuBackground.SetActive(false);
+    //}
+
+    private void SetGameSettings()
     {
-        _doubleJumpToggle = GameObject.FindGameObjectWithTag("TGL_DoubleJump").GetComponent<Toggle>();
-        _coyoteToggle = GameObject.FindGameObjectWithTag("TGL_CoyoteTime").GetComponent<Toggle>();
-        _jumpBufferToggle = GameObject.FindGameObjectWithTag("TGL_JumpBuffer").GetComponent<Toggle>();
-        _wallJumpToggle = GameObject.FindGameObjectWithTag("TGL_WallJump").GetComponent<Toggle>();
-        _wallSlideToggle = GameObject.FindGameObjectWithTag("TGL_WallSlide").GetComponent<Toggle>();
-
-        _mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
-        _optionsMenu = GameObject.FindGameObjectWithTag("OptionsMenu");
-        _optionsMenu.SetActive(false);
-        _menuBackground = GameObject.FindGameObjectWithTag("Background_UI");
-        
-    }
-
-    private void GetReferencesLevelOne()
-    {
-        _mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
-        _optionsMenu = GameObject.FindGameObjectWithTag("OptionsMenuGame");
-        _menuBackground = GameObject.FindGameObjectWithTag("Background_UI");
-
-        _mainMenu.SetActive(false);
-        _optionsMenu.SetActive(false);
-        _menuBackground.SetActive(false);
+        _coyoteToggle.isOn = _GameSettings.coyoteToggle;
+        _doubleJumpToggle.isOn = _GameSettings.doubleJumpToggle;
+        _wallSlideToggle.isOn = _GameSettings.wallSlideToggle;
+        _wallJumpToggle.isOn = _GameSettings.wallJumpToggle;
+        _jumpBufferToggle.isOn = _GameSettings.jumpBufferToggle;
     }
 }

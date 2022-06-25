@@ -19,9 +19,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private CircleCollider2D _leftCollider;
     [SerializeField] private LayerMask _groundLayers;
     [SerializeField] private LayerMask _wallLayers;
+    [SerializeField] private SO_GameSettings _GameSettings;
 
-    private GameManager _gameManager;
-    private UIManager _uiManager;
     private Vector2 _moveVal;
     private Rigidbody2D _rb;
     private bool _longJump = false;
@@ -44,8 +43,6 @@ public class PlayerInput : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerControls = new PlayerInputActions();
-        _gameManager = FindObjectOfType<GameManager>();
-        _uiManager = FindObjectOfType<UIManager>();
 
         // Setting the coyote counter to allow jumping when it is off
         //_coyoteCounter = 0.01f;
@@ -94,7 +91,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (context.started && (_coyoteCounter > 0f || _wallJumpRight || _wallJumpLeft))
         {
-            if (_gameManager.CanDoubleJump)
+            if (_GameSettings.doubleJumpToggle)
             {
                 Jump();
                 _doubleJump = true;
@@ -109,12 +106,12 @@ public class PlayerInput : MonoBehaviour
             Jump();
             _doubleJump = false;
         }
-        else if (context.started && _jumpBufferCounter <= 0 && _gameManager.JumpBufferOn)
+        else if (context.started && _jumpBufferCounter <= 0 && _GameSettings.jumpBufferToggle)
         {
             _jumpBufferCounter = _JumpBufferTime;
             _jumpBufferCountdown = true;
 
-            if (_gameManager.CanDoubleJump)
+            if (_GameSettings.doubleJumpToggle)
                 _doubleJump = true;
         }
 
@@ -123,13 +120,13 @@ public class PlayerInput : MonoBehaviour
 
     public void OnEscape(InputAction.CallbackContext context)
     {
-        if (context.started && !_uiManager.InMenu)
+        if (context.started && !UIManager.Instance.InMenu)
         {
-            _gameManager.IsPaused = true;
-            _gameManager.PauseGame();
-            _uiManager.InMenu = true;
-            _uiManager.MenuBackground.SetActive(true);
-            _uiManager.MainMenu.SetActive(true);
+            GameManager.Instance.IsPaused = true;
+            GameManager.Instance.PauseGame();
+            UIManager.Instance.InMenu = true;
+            UIManager.Instance.MenuBackground.SetActive(true);
+            UIManager.Instance.MainMenu.SetActive(true);
         }
     }
 
@@ -198,7 +195,7 @@ public class PlayerInput : MonoBehaviour
 
     private void JumpBuffer()
     {
-        if (_gameManager.JumpBufferOn)
+        if (_GameSettings.jumpBufferToggle)
         {
             if (_jumpBufferCountdown)
             {
@@ -228,7 +225,7 @@ public class PlayerInput : MonoBehaviour
     private void Coyote()
     {
         // Checking if the player wants to use the Coyote timer
-        if (_gameManager.CanCoyoteJump)
+        if (_GameSettings.coyoteToggle)
         {
             if (IsGrounded())
             {
@@ -255,7 +252,7 @@ public class PlayerInput : MonoBehaviour
     private void WallSlideCheck()
     {
 
-        if (_gameManager.CanWallSlide)
+        if (_GameSettings.wallSlideToggle)
         {
             if (_rightCollider.IsTouchingLayers(_wallLayers) && !IsGrounded() && _moveVal.x > 0)
             {
@@ -278,7 +275,7 @@ public class PlayerInput : MonoBehaviour
 
     private void WallJumpCheck()
     {
-        if (_gameManager.CanWallJump)
+        if (_GameSettings.wallJumpToggle)
         {
             if (_rightCollider.IsTouchingLayers(_wallLayers) && !IsGrounded())
             {

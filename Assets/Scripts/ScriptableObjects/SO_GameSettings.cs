@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class SO_GameSettings : ScriptableObject
 {
-    public Toggle coyoteToggle;
-    public Toggle doubleJumpToggle;
-    public Toggle wallSlideToggle;
-    public Toggle wallJumpToggle;
-    public Toggle jumpBufferToggle;
+    public bool coyoteToggle = true;
+    public bool doubleJumpToggle = true;
+    public bool wallSlideToggle = true;
+    public bool wallJumpToggle = true;
+    public bool jumpBufferToggle = true;
 }
