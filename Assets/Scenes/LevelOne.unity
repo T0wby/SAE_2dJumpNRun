@@ -4912,7 +4912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1437171654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7694,7 +7694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6404189300095309149, guid: 474045f1d1a748546878988f9baa5079, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.98
+      value: 10.007
       objectReference: {fileID: 0}
     - target: {fileID: 6404189300095309149, guid: 474045f1d1a748546878988f9baa5079, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7732,13 +7732,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6404189300095309150, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
       propertyPath: _wallJumpTime
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
       propertyPath: _JumpBufferTime
-      value: 2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
       propertyPath: _wallJumpForceX

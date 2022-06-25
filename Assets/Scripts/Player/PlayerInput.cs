@@ -38,12 +38,13 @@ public class PlayerInput : MonoBehaviour
     private InputAction _move;
     private InputAction _jump;
     private InputAction _interact;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerControls = new PlayerInputActions();
-
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         // Setting the coyote counter to allow jumping when it is off
         //_coyoteCounter = 0.01f;
     }
@@ -142,6 +143,14 @@ public class PlayerInput : MonoBehaviour
             {
                 _rb.velocity = new Vector2(_moveVal.x * _moveSpeed * Time.fixedDeltaTime, _rb.velocity.y);
             }
+        }
+        if (_moveVal.x > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (_moveVal.x < 0)
+        {
+            _spriteRenderer.flipX = true;
         }
     }
 

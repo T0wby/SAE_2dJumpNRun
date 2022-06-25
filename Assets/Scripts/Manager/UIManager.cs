@@ -34,8 +34,6 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-
         _inMenu = false;
     }
 
@@ -119,32 +117,6 @@ public class UIManager : MonoBehaviour
     {
         _GameSettings.jumpBufferToggle = value;
     }
-
-    //private void GetReferences()
-    //{
-    //    _doubleJumpToggle = GameObject.FindGameObjectWithTag("TGL_DoubleJump").GetComponent<Toggle>();
-    //    _coyoteToggle = GameObject.FindGameObjectWithTag("TGL_CoyoteTime").GetComponent<Toggle>();
-    //    _jumpBufferToggle = GameObject.FindGameObjectWithTag("TGL_JumpBuffer").GetComponent<Toggle>();
-    //    _wallJumpToggle = GameObject.FindGameObjectWithTag("TGL_WallJump").GetComponent<Toggle>();
-    //    _wallSlideToggle = GameObject.FindGameObjectWithTag("TGL_WallSlide").GetComponent<Toggle>();
-
-    //    _mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
-    //    _optionsMenu = GameObject.FindGameObjectWithTag("OptionsMenu");
-    //    _optionsMenu.SetActive(false);
-    //    _menuBackground = GameObject.FindGameObjectWithTag("Background_UI");
-
-    //}
-
-    //private void GetReferencesLevelOne()
-    //{
-    //    _mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
-    //    _optionsMenu = GameObject.FindGameObjectWithTag("OptionsMenuGame");
-    //    _menuBackground = GameObject.FindGameObjectWithTag("Background_UI");
-
-    //    _mainMenu.SetActive(false);
-    //    _optionsMenu.SetActive(false);
-    //    _menuBackground.SetActive(false);
-    //}
 
     private void SetGameSettings()
     {
