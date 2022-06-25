@@ -9,20 +9,33 @@ public class Player : MonoBehaviour
     [SerializeField] private Sprite greenSprite;
     [SerializeField] private Sprite yellowSprite;
     [SerializeField] private Sprite purpleSprite;
-    private CapsuleCollider2D _playerCapsule;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
-        _playerCapsule = GetComponent<CapsuleCollider2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     public void TakeDamage(int damage)
     {
         if (hp>0)
         {
-            hp -=damage;
-            if (hp <= 0)
+            hp -= damage;
+            switch (hp)
             {
-                OpenGameOverPrompt();
+                case <=0:
+                    OpenGameOverPrompt();
+                    break;
+                case 1:
+                    _spriteRenderer.sprite = purpleSprite;
+                    break;
+                case 2:
+                    _spriteRenderer.sprite = yellowSprite;
+                    break;
+                case 3:
+                    _spriteRenderer.sprite = greenSprite;
+                    break;
+                default:
+                    break;
             }
         }
     }
