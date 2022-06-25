@@ -137,7 +137,7 @@ public class PlayerInput : MonoBehaviour
         {
             if (_wallSliding)
             {
-                _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Clamp(_rb.velocity.y * Time.fixedDeltaTime, -_wallSlidingSpeed, float.MaxValue) * Time.fixedDeltaTime);
+                _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Clamp(_rb.velocity.y * Time.fixedDeltaTime, -_wallSlidingSpeed, float.MaxValue));
             }
             else
             {

@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 6404189300095309136}
   - component: {fileID: 3458570730206258220}
   - component: {fileID: 6846722086912529996}
+  - component: {fileID: 6989361076513435640}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -337,6 +338,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _GameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
+--- !u!114 &6989361076513435640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404189300095309137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f088339077e844f8d12d7807f07e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3
+  _enemyLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  greenSprite: {fileID: 1647251217, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
+  yellowSprite: {fileID: -1660186142, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
+  purpleSprite: {fileID: -1457760489, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
 --- !u!1 &8639958012912207806
 GameObject:
   m_ObjectHideFlags: 0
