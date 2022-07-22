@@ -357,6 +357,7 @@ MonoBehaviour:
   greenSprite: {fileID: 1647251217, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
   yellowSprite: {fileID: -1660186142, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
   purpleSprite: {fileID: -1457760489, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
+  _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
 --- !u!1 &8639958012912207806
 GameObject:
   m_ObjectHideFlags: 0

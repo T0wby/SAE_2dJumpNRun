@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Sprite greenSprite;
     [SerializeField] private Sprite yellowSprite;
     [SerializeField] private Sprite purpleSprite;
+    [SerializeField] private SO_LevelObjects _LevelObjects;
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
