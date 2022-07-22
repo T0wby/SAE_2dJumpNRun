@@ -7,4 +7,7 @@ using UnityEngine;
 public class SO_LevelObjects : ScriptableObject
 {
     public Transform player;
+    public int health;
+    public int diamondCount;
+    public string[] activeScenes;
 }
