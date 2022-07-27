@@ -12,7 +12,7 @@ public class EnemyObj : MonoBehaviour
         Debug.Log("Spike collided with " + collision.name);
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().TakeDamage(attackDamage);
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
 }

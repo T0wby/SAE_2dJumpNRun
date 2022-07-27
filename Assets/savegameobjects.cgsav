@@ -1,0 +1,8 @@
+{
+    "player": {
+        "instanceID": 0
+    },
+    "health": 0,
+    "diamondCount": 0,
+    "activeScenes": []
+}

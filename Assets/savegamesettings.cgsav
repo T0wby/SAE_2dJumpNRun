@@ -1,0 +1,7 @@
+{
+    "coyoteToggle": true,
+    "doubleJumpToggle": false,
+    "wallSlideToggle": true,
+    "wallJumpToggle": true,
+    "jumpBufferToggle": true
+}

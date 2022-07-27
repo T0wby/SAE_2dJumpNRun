@@ -38,14 +38,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    private void Update()
-    {
-        //Debug.Log("_canDoubleJump" + _canDoubleJump);
-        //Debug.Log("_canCoyoteJump" + _canCoyoteJump);
-        //Debug.Log("_canWallSlide" + _canWallSlide);
-        //Debug.Log("_canWallJump" + _canWallJump);
-    }
-
     public void PauseGame()
     {
         if (_isPaused)

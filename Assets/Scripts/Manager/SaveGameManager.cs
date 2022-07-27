@@ -28,6 +28,7 @@ public class SaveGameManager : MonoBehaviour
 
     public void Save()
     {
+        Debug.Log("SAVED GAME.....");
         _saveGameSettings = JsonUtility.ToJson(_gameSettings, true);
         _saveGameObjects = JsonUtility.ToJson(_levelObjects, true);
 
@@ -41,7 +42,7 @@ public class SaveGameManager : MonoBehaviour
 
         using (StreamWriter writer = File.CreateText(filePathTwo))
         {
-            writer.Write(_saveGameSettings);
+            writer.Write(_saveGameObjects);
         }
 
     }

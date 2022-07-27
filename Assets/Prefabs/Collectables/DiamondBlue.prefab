@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3442494153455381447}
   - component: {fileID: 3051648837252885732}
   - component: {fileID: 3406999574362748261}
+  - component: {fileID: 5485744330398553403}
   m_Layer: 8
   m_Name: DiamondBlue
   m_TagString: Untagged
@@ -101,3 +102,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.26666668
+--- !u!114 &5485744330398553403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587890760904788591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfb923f4e9469843aa6bbf9b1d8ffe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Blue Diamond
+  _description: Shimmering in a light blue color
+  _value: 1
