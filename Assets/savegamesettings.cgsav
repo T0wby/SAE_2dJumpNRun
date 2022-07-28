@@ -1,6 +1,6 @@
 {
     "coyoteToggle": true,
-    "doubleJumpToggle": false,
+    "doubleJumpToggle": true,
     "wallSlideToggle": true,
     "wallJumpToggle": true,
     "jumpBufferToggle": true

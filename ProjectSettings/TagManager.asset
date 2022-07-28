@@ -13,6 +13,7 @@ TagManager:
   - OptionsMenu
   - Background_UI
   - OptionsMenuGame
+  - Door
   layers:
   - Default
   - TransparentFX
