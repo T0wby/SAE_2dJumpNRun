@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private bool _canWallJump;
     private bool _jumpBufferOn;
     private bool _isPaused;
+    private int _diamondCount;
 
     public bool CanDoubleJump { get { return _canDoubleJump; } set { _canDoubleJump = value; } }
     public bool CanCoyoteJump { get { return _canCoyoteJump; } set { _canCoyoteJump = value; } }
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public bool CanWallSlide { get { return _canWallSlide; } set { _canWallSlide = value; } }
     public bool CanWallJump { get { return _canWallJump; } set { _canWallJump = value; } }
     public bool JumpBufferOn { get { return _jumpBufferOn; } set { _jumpBufferOn = value; } }
+    public int DiamondCount { get { return _diamondCount; } set { _diamondCount = value; } }
     private void Awake()
     {
         if (Instance == null)

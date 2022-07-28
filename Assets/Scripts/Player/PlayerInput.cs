@@ -34,11 +34,14 @@ public class PlayerInput : MonoBehaviour
     private float _coyoteCounter;
     private float _wallJumpCounter;
     private float _jumpBufferCounter;
+    private int _interactStatus;
     private PlayerInputActions _playerControls;
     private InputAction _move;
     private InputAction _jump;
     private InputAction _interact;
     private SpriteRenderer _spriteRenderer;
+
+    public int InteractStatus { get { return _interactStatus; } }
 
     private void Awake()
     {
@@ -127,6 +130,16 @@ public class PlayerInput : MonoBehaviour
             UIManager.Instance.MainMenu.SetActive(true);
         }
     }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            _interactStatus = 1;
+        if (context.canceled)
+            _interactStatus = -1;
+    }
+
+
 
     private void Move()
     {

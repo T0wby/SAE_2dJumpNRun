@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8596291107344824063}
   - component: {fileID: 6781058842342512750}
   - component: {fileID: 8956341979689059371}
+  - component: {fileID: 7776753986008460423}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 235429840, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,6 +113,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7776753986008460423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670856695794773414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c606e28a84dbb4eac51b11b626b627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doorOpen: 0
 --- !u!1 &6728305767461916212
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5746688747319901397}
   - component: {fileID: 7722210297776739827}
+  - component: {fileID: 428477936366904801}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Door
@@ -170,3 +185,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &428477936366904801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728305767461916212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a764bb4e86261f49a29916fbde58148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Door: {fileID: 0}
+  _Lever: {fileID: 0}
