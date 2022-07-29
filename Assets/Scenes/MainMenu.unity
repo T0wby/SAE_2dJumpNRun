@@ -411,8 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1be03f1c19991488e277ef09069e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameSettings: {fileID: 0}
-  _levelObjects: {fileID: 0}
+  _gameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
+  _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
 --- !u!4 &486816829
 Transform:
   m_ObjectHideFlags: 0
@@ -726,6 +726,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ca46dfb9f33b04a927fd22a7ee7e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
+  onDiamondCountChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1570249472}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeDiamondCount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1161245812
 Transform:
   m_ObjectHideFlags: 0
@@ -734,7 +750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161245810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5985646, y: -2.9125762, z: 2.8532214}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1606,6 +1622,9 @@ MonoBehaviour:
   _wallSlideToggle: {fileID: 1267434764}
   _wallJumpToggle: {fileID: 1267434763}
   _jumpBufferToggle: {fileID: 1267434762}
+  _diamondCount: {fileID: 0}
+  _healthCount: {fileID: 0}
+  _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
   _GameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
 --- !u!4 &1570249473
 Transform:

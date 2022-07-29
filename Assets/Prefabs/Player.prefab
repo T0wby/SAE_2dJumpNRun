@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 3458570730206258220}
   - component: {fileID: 6846722086912529996}
   - component: {fileID: 7897385730734836388}
+  - component: {fileID: 5324015716537337901}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -283,7 +284,19 @@ MonoBehaviour:
     m_ActionId: 6e18f5d9-a49d-4821-bbc8-a74991c122d5
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6846722086912529996}
+        m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 80a05c8d-c0cc-4091-975e-7cfff5e10ac2
     m_ActionName: Player/Interact[/Keyboard/e]
   - m_PersistentCalls:
@@ -324,16 +337,16 @@ MonoBehaviour:
   _fallMultiplier: 2.5
   _lowJumpMultiplier: 2
   _wallSlidingSpeed: 20
-  _wallJumpForceX: 0
-  _wallJumpForceY: 0
+  _wallJumpForceX: 5
+  _wallJumpForceY: 10
   _wallJumpTime: 0.2
-  _JumpBufferTime: 0.5
+  _JumpBufferTime: 0.3
   _feetCollider: {fileID: 1851038608835680514}
   _rightCollider: {fileID: 2601617260271296438}
   _leftCollider: {fileID: 6362994757933215981}
   _groundLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   _wallLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -350,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86dbf28d68f3fdc448f37e0586b886b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 3
+  _health: 10
   _enemyLayers:
     serializedVersion: 2
     m_Bits: 512
@@ -360,7 +373,59 @@ MonoBehaviour:
   _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
   onPlayerDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6846722086912529996}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: BackToMainMenuScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeLifeCount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5324015716537337901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404189300095309137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f088339077e844f8d12d7807f07e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
 --- !u!1 &8639958012912207806
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +438,7 @@ GameObject:
   - component: {fileID: 1851038608835680514}
   m_Layer: 3
   m_Name: Feet
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

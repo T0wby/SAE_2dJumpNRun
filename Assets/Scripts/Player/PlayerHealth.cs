@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int _health = 3;
+    [SerializeField] private int _health;
     [SerializeField] private LayerMask _enemyLayers;
     [SerializeField] private Sprite _greenSprite;
     [SerializeField] private Sprite _yellowSprite;
@@ -16,15 +16,18 @@ public class PlayerHealth : MonoBehaviour
     public int Health { get { return _health; } }
 
     public UnityEvent onPlayerDeath;
+    public UnityEvent<int> onHealthChange;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        onHealthChange.Invoke(_health);
     }
 
     public void TakeDamage(int damage)
     {
         _health -= damage;
+        onHealthChange.Invoke(_health);
         if (_health > 0)
         {
             switch (_health)

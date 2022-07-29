@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Toggle _wallSlideToggle;
     [SerializeField] private Toggle _wallJumpToggle;
     [SerializeField] private Toggle _jumpBufferToggle;
+    [SerializeField] private TMP_Text _diamondCount;
+    [SerializeField] private TMP_Text _healthCount;
+    [SerializeField] private SO_LevelObjects _LevelObjects;
     [SerializeField] private SO_GameSettings _GameSettings;
     private bool _inMenu;
 
@@ -59,6 +63,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.IsPaused = false;
         GameManager.Instance.PauseGame();
         SceneManager.LoadSceneAsync("MainMenu");
+        _LevelObjects.activeScenes = null;
         SetGameSettings();
     }
 
@@ -79,6 +84,7 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync("LevelOne");
+        _LevelObjects.activeScenes[0] = "LevelOne";
     }
 
     public void BackToMainMenu()
@@ -116,6 +122,16 @@ public class UIManager : MonoBehaviour
     public void ChangeJumpBufferValue(bool value)
     {
         _GameSettings.jumpBufferToggle = value;
+    }
+
+    public void ChangeDiamondCount(int value)
+    {
+        _diamondCount.text = value.ToString();
+    }
+
+    public void ChangeLifeCount(int value)
+    {
+        _healthCount.text = value.ToString();
     }
 
     private void SetGameSettings()

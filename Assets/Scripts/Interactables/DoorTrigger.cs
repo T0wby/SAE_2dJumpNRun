@@ -7,11 +7,7 @@ public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private Door _Door;
     [SerializeField] private Lever _Lever;
-
-    private void Awake()
-    {
-        
-    }
+    [SerializeField] private SO_LevelObjects _LevelObjects;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,6 +19,7 @@ public class DoorTrigger : MonoBehaviour
             _Door.DoorOpen = true;
             _Door.OpenDoor();
             SceneManager.LoadScene("LevelTwo", LoadSceneMode.Additive);
+            _LevelObjects.activeScenes[1] = "LevelTwo";
         }
     }
 }
