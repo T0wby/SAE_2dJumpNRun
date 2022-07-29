@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
         _jumpBufferOn = true;
         _isPaused = true;
 
+        onDiamondCountChange.AddListener(UIManager.Instance.ChangeDiamondCount);
+
         DontDestroyOnLoad(this.gameObject);
     }
 
