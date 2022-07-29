@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class UIManager : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SO_GameSettings _GameSettings;
     private bool _inMenu;
 
+    public UnityEvent<int> onDiamondCountChange;
+
+
     public GameObject MainMenu { get { return _mainMenu; } }
     public GameObject OptionsMenu { get { return _optionsMenu; } }
     public GameObject MenuBackground { get { return _menuBackground; } }
@@ -39,6 +43,7 @@ public class UIManager : MonoBehaviour
             return;
         }
         _inMenu = false;
+        onDiamondCountChange.AddListener(ChangeDiamondCount);
     }
 
     private void Start()
@@ -63,7 +68,8 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.IsPaused = false;
         GameManager.Instance.PauseGame();
         SceneManager.LoadSceneAsync("MainMenu");
-        _LevelObjects.activeScenes = null;
+        _LevelObjects.activeScenes[0] = null;
+        _LevelObjects.activeScenes[1] = null;
         SetGameSettings();
     }
 

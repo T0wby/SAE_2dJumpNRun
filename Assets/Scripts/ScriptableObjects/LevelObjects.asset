@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LevelObjects
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 0
-  diamondCount: 0
+  health: 10
+  diamondCount: 1
   activeScenes:
   - 
   - 

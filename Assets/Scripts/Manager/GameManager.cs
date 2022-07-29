@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SO_LevelObjects _LevelObjects;
 
 
-    public UnityEvent<int> onDiamondCountChange;
 
     public bool CanDoubleJump { get { return _canDoubleJump; } set { _canDoubleJump = value; } }
     public bool CanCoyoteJump { get { return _canCoyoteJump; } set { _canCoyoteJump = value; } }
@@ -25,7 +24,7 @@ public class GameManager : MonoBehaviour
     public bool CanWallSlide { get { return _canWallSlide; } set { _canWallSlide = value; } }
     public bool CanWallJump { get { return _canWallJump; } set { _canWallJump = value; } }
     public bool JumpBufferOn { get { return _jumpBufferOn; } set { _jumpBufferOn = value; } }
-    public int DiamondCount { get { return _diamondCount; } set { _diamondCount = value; onDiamondCountChange.Invoke(_diamondCount); } }
+    public int DiamondCount { get { return _diamondCount; } set { _diamondCount = value; UIManager.Instance.onDiamondCountChange.Invoke(_diamondCount); } }
     private void Awake()
     {
         if (Instance == null)
@@ -42,8 +41,6 @@ public class GameManager : MonoBehaviour
         _canWallJump = true;
         _jumpBufferOn = true;
         _isPaused = true;
-
-        onDiamondCountChange.AddListener(UIManager.Instance.ChangeDiamondCount);
 
         DontDestroyOnLoad(this.gameObject);
     }

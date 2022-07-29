@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private SO_LevelObjects _LevelObjects;
     private SpriteRenderer _spriteRenderer;
 
-    public int Health { get { return _health; } }
+    public int Health { get { return _health; } set { _health = value; onHealthChange.Invoke(_health); } }
 
     public UnityEvent onPlayerDeath;
     public UnityEvent<int> onHealthChange;
@@ -27,7 +27,6 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
-        onHealthChange.Invoke(_health);
         if (_health > 0)
         {
             switch (_health)
