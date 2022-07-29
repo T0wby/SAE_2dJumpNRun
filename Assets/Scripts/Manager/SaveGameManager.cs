@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SaveGameManager : MonoBehaviour
@@ -73,6 +74,10 @@ public class SaveGameManager : MonoBehaviour
 
     public void Load()
     {
+        StartCoroutine(nameof(LoadingScreenStart));
+
+        Image loadingBar = GameObject.FindGameObjectWithTag("LoadingBar").GetComponent<Image>();
+
         LoadFromJSON();
 
         if (_levelObjects.activeScenes == null)
@@ -82,23 +87,62 @@ public class SaveGameManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i]);
+                    StartCoroutine(LoadingLevel(_levelObjects.activeScenes[i], loadingBar));
                     break;
                 case 1:
-                    SceneManager.LoadScene(_levelObjects.activeScenes[i], LoadSceneMode.Additive);
+                    StartCoroutine(LoadingLevelAdditive(_levelObjects.activeScenes[i], loadingBar));
                     break;
                 default:
                     break;
             }
         }
-        GameObject player = GameObject.Find("Player");
 
-        if(player == null)
+        SceneManager.UnloadSceneAsync("LoadingScreen");
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player == null)
             return;
 
         player.transform.position = _levelObjects.player.position;
         player.transform.rotation = _levelObjects.player.rotation;
         player.GetComponent<PlayerHealth>().Health = _levelObjects.health;
         GameManager.Instance.DiamondCount = _levelObjects.diamondCount;
+    }
+
+    private IEnumerator LoadingScreenStart()
+    {
+        AsyncOperation loadOp = SceneManager.LoadSceneAsync("LoadingScreen");
+
+        while (!loadOp.isDone)
+        {
+            Debug.Log(loadOp.progress);
+            yield return null;
+        }
+    }
+
+    private IEnumerator LoadingLevel(string levelName, Image loadingBar)
+    {
+        AsyncOperation loadOp = SceneManager.LoadSceneAsync(levelName);
+
+        while (!loadOp.isDone)
+        {
+            loadingBar.fillAmount = loadOp.progress;
+            yield return null;
+        }
+        loadingBar.fillAmount = 1f;
+
+    }
+
+    private IEnumerator LoadingLevelAdditive(string levelName, Image loadingBar)
+    {
+        AsyncOperation loadOp = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+
+        while (!loadOp.isDone)
+        {
+            loadingBar.fillAmount = loadOp.progress;
+            yield return null;
+        }
+        loadingBar.fillAmount = 1f;
     }
 }

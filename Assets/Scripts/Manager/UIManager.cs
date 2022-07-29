@@ -89,7 +89,7 @@ public class UIManager : MonoBehaviour
     #region MainMenu
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("LevelOne");
+        SceneManager.LoadSceneAsync("LoadingScreen");
         _LevelObjects.activeScenes[0] = "LevelOne";
     }
 

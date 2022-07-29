@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _health -= damage;
+        Health -= damage;
         if (_health > 0)
         {
             switch (_health)
