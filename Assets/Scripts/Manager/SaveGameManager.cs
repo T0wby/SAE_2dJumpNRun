@@ -90,7 +90,7 @@ public class SaveGameManager : MonoBehaviour
                     StartCoroutine(LoadingLevel(_levelObjects.activeScenes[i], loadingBar));
                     break;
                 case 1:
-                    StartCoroutine(LoadingLevelAdditive(_levelObjects.activeScenes[i], loadingBar));
+                    SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i], LoadSceneMode.Additive);
                     break;
                 default:
                     break;
@@ -134,15 +134,15 @@ public class SaveGameManager : MonoBehaviour
 
     }
 
-    private IEnumerator LoadingLevelAdditive(string levelName, Image loadingBar)
-    {
-        AsyncOperation loadOp = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+    //private IEnumerator LoadingLevelAdditive(string levelName, Image loadingBar)
+    //{
+    //    AsyncOperation loadOp = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
 
-        while (!loadOp.isDone)
-        {
-            loadingBar.fillAmount = loadOp.progress;
-            yield return null;
-        }
-        loadingBar.fillAmount = 1f;
-    }
+    //    while (!loadOp.isDone)
+    //    {
+    //        loadingBar.fillAmount = loadOp.progress;
+    //        yield return null;
+    //    }
+    //    loadingBar.fillAmount = 1f;
+    //}
 }
