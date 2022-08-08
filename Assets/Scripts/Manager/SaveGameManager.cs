@@ -11,6 +11,7 @@ public class SaveGameManager : MonoBehaviour
 
     [SerializeField] private SO_GameSettings _gameSettings;
     [SerializeField] private SO_LevelObjects _levelObjects;
+    [SerializeField] private Image _loadingBar;
 
     private string _saveGameSettings;
     private string _saveGameObjects;
@@ -76,8 +77,6 @@ public class SaveGameManager : MonoBehaviour
     {
         StartCoroutine(nameof(LoadingScreenStart));
 
-        Image loadingBar = GameObject.FindGameObjectWithTag("LoadingBar").GetComponent<Image>();
-
         LoadFromJSON();
 
         if (_levelObjects.activeScenes == null)
@@ -87,7 +86,7 @@ public class SaveGameManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    StartCoroutine(LoadingLevel(_levelObjects.activeScenes[i], loadingBar));
+                    StartCoroutine(LoadingLevel(_levelObjects.activeScenes[i], _loadingBar));
                     break;
                 case 1:
                     SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i], LoadSceneMode.Additive);
