@@ -12,11 +12,14 @@ public class SaveGameManager : MonoBehaviour
     [SerializeField] private SO_GameSettings _gameSettings;
     [SerializeField] private SO_LevelObjects _levelObjects;
     [SerializeField] private Image _loadingBar;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _continueText;
 
     private string _saveGameSettings;
     private string _saveGameObjects;
     private string _filePath;
     private string _filePathTwo;
+    public GameObject ContinueText { get { return _continueText; } }
 
     void Awake()
     {
@@ -24,8 +27,8 @@ public class SaveGameManager : MonoBehaviour
             Instance = this;
         else if (Instance != this)
         {
-            Destroy(gameObject);
-            return;
+            Destroy(Instance);
+            Instance = this;
         }
         _filePath = $"{Application.dataPath}/savegamesettings.cgsav";
         _filePathTwo = $"{Application.dataPath}/savegameobjects.cgsav";
@@ -89,59 +92,74 @@ public class SaveGameManager : MonoBehaviour
                     StartCoroutine(LoadingLevel(_levelObjects.activeScenes[i], _loadingBar));
                     break;
                 case 1:
-                    SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i], LoadSceneMode.Additive);
+                    if(_levelObjects.activeScenes[i] != "")
+                        SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i], LoadSceneMode.Additive);
                     break;
                 default:
                     break;
             }
         }
 
-        SceneManager.UnloadSceneAsync("LoadingScreen");
+        StartCoroutine(nameof(UnloadLoadingScreen));
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
 
-        if (player == null)
-            return;
+        if (_player != null)
+        {
+            _player.transform.SetPositionAndRotation(_levelObjects.player.position, _levelObjects.player.rotation);
+            _player.GetComponent<PlayerHealth>().Health = _levelObjects.health;
+        }
 
-        player.transform.position = _levelObjects.player.position;
-        player.transform.rotation = _levelObjects.player.rotation;
-        player.GetComponent<PlayerHealth>().Health = _levelObjects.health;
         GameManager.Instance.DiamondCount = _levelObjects.diamondCount;
     }
 
     private IEnumerator LoadingScreenStart()
     {
         AsyncOperation loadOp = SceneManager.LoadSceneAsync("LoadingScreen");
+        loadOp.allowSceneActivation = false;
 
         while (!loadOp.isDone)
         {
-            Debug.Log(loadOp.progress);
+            if (loadOp.progress >= 0.9f)
+                loadOp.allowSceneActivation = true;
+
             yield return null;
         }
+        yield return null;
+    }
+
+    private IEnumerator UnloadLoadingScreen()
+    {
+        AsyncOperation loadOp = SceneManager.UnloadSceneAsync("LoadingScreen");
+
+        while (!loadOp.isDone)
+        {
+            yield return null;
+        }
+        yield return null;
     }
 
     private IEnumerator LoadingLevel(string levelName, Image loadingBar)
     {
         AsyncOperation loadOp = SceneManager.LoadSceneAsync(levelName);
+        loadOp.allowSceneActivation = false;
 
         while (!loadOp.isDone)
         {
             loadingBar.fillAmount = loadOp.progress;
+
+            if (loadOp.progress >= 0.9f)
+            {
+                loadingBar.fillAmount = 1f;
+                _continueText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Space))
+                    // Activate the Scene
+                    loadOp.allowSceneActivation = true;
+            }
+
             yield return null;
         }
-        loadingBar.fillAmount = 1f;
+        yield return null;
 
     }
-
-    //private IEnumerator LoadingLevelAdditive(string levelName, Image loadingBar)
-    //{
-    //    AsyncOperation loadOp = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
-
-    //    while (!loadOp.isDone)
-    //    {
-    //        loadingBar.fillAmount = loadOp.progress;
-    //        yield return null;
-    //    }
-    //    loadingBar.fillAmount = 1f;
-    //}
 }

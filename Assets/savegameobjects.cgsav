@@ -1,8 +1,8 @@
 {
     "player": {
-        "instanceID": 42260
+        "instanceID": 40384
     },
-    "health": 10,
+    "health": 8,
     "diamondCount": 1,
     "activeScenes": [
         "LevelOne",

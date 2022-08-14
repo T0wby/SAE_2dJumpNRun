@@ -39,8 +39,8 @@ public class UIManager : MonoBehaviour
             Instance = this;
         else if (Instance != this)
         {
-            Destroy(gameObject);
-            return;
+            Destroy(Instance);
+            Instance = this;
         }
         _inMenu = false;
         onDiamondCountChange.AddListener(ChangeDiamondCount);
