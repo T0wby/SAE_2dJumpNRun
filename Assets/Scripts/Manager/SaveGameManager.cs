@@ -34,6 +34,14 @@ public class SaveGameManager : MonoBehaviour
         _filePathTwo = $"{Application.dataPath}/savegameobjects.cgsav";
     }
 
+    private void Start()
+    {
+        if (GameManager.Instance.LoadingSave)
+        {
+            SetSaveData();
+        }
+    }
+
     public void Save()
     {
         Debug.Log("SAVED GAME.....");
@@ -82,31 +90,31 @@ public class SaveGameManager : MonoBehaviour
 
         LoadFromJSON();
 
+        GameManager.Instance.LoadingSave = true;
+
         if (_levelObjects.activeScenes == null)
             return;
+
+        int count = 0;
         for (int i = 0; i < _levelObjects.activeScenes.Length; i++)
         {
-            switch (i)
-            {
-                case 0:
-                    StartCoroutine(LoadingLevel(_levelObjects.activeScenes[i], _loadingBar));
-                    break;
-                case 1:
-                    if(_levelObjects.activeScenes[i] != "")
-                        SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i], LoadSceneMode.Additive);
-                    break;
-                default:
-                    break;
-            }
+            if (_levelObjects.activeScenes[i] != "")
+                count++;
         }
 
-        StartCoroutine(nameof(UnloadLoadingScreen));
+        if (count > 1)
+            GameManager.Instance.LoadSeveralScenes = true;
+        else
+            GameManager.Instance.LoadSeveralScenes = false;
+    }
 
+    private void SetSaveData()
+    {
         _player = GameObject.FindGameObjectWithTag("Player");
 
         if (_player != null)
         {
-            _player.transform.SetPositionAndRotation(_levelObjects.player.position, _levelObjects.player.rotation);
+            _player.transform.SetPositionAndRotation(_levelObjects.playerPosition, _levelObjects.playerRotation);
             _player.GetComponent<PlayerHealth>().Health = _levelObjects.health;
         }
 
@@ -126,40 +134,5 @@ public class SaveGameManager : MonoBehaviour
             yield return null;
         }
         yield return null;
-    }
-
-    private IEnumerator UnloadLoadingScreen()
-    {
-        AsyncOperation loadOp = SceneManager.UnloadSceneAsync("LoadingScreen");
-
-        while (!loadOp.isDone)
-        {
-            yield return null;
-        }
-        yield return null;
-    }
-
-    private IEnumerator LoadingLevel(string levelName, Image loadingBar)
-    {
-        AsyncOperation loadOp = SceneManager.LoadSceneAsync(levelName);
-        loadOp.allowSceneActivation = false;
-
-        while (!loadOp.isDone)
-        {
-            loadingBar.fillAmount = loadOp.progress;
-
-            if (loadOp.progress >= 0.9f)
-            {
-                loadingBar.fillAmount = 1f;
-                _continueText.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space))
-                    // Activate the Scene
-                    loadOp.allowSceneActivation = true;
-            }
-
-            yield return null;
-        }
-        yield return null;
-
     }
 }

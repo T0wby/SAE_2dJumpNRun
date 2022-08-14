@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class SO_LevelObjects : ScriptableObject
 {
-    public Transform player;
+    public Vector3 playerPosition;
+    public Quaternion playerRotation;
     public int health;
     public int diamondCount;
     public string[] activeScenes;

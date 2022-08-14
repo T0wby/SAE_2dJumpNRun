@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     public void SavePlayerPos()
     {
-        _levelObjects.player = this.transform;
+        _levelObjects.playerPosition = transform.position;
+        _levelObjects.playerRotation = transform.rotation;
     }
 }
