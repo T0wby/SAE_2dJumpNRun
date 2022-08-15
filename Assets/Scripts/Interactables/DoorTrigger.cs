@@ -11,9 +11,6 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-            Debug.Log("Player entered");
-
         if (collision.gameObject.CompareTag("Player") && _Lever.LeverPulled)
         {
             _Door.DoorOpen = true;

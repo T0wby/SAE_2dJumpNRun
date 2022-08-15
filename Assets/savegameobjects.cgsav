@@ -1,7 +1,7 @@
 {
     "playerPosition": {
-        "x": 57.117794036865237,
-        "y": -0.49392274022102358,
+        "x": 57.94133377075195,
+        "y": -0.4939252436161041,
         "z": 0.0
     },
     "playerRotation": {
@@ -10,7 +10,7 @@
         "z": 0.0,
         "w": 1.0
     },
-    "health": 7,
+    "health": 9,
     "diamondCount": 1,
     "activeScenes": [
         "LevelOne",

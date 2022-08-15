@@ -48,36 +48,44 @@ public class LoadingScreen : MonoBehaviour
 
     private IEnumerator LoadingSeveralScenes()
     {
-        for (int i = 0; i < _levelObjects.activeScenes.Length; i++) 
+        AsyncOperation loadOp = SceneManager.LoadSceneAsync(_levelObjects.activeScenes[0]);
+        loadOp.allowSceneActivation = false;
+
+        while (!loadOp.isDone)
         {
-            if (i == 0)
+            _loadingBar.fillAmount = loadOp.progress;
+
+            if (loadOp.progress >= 0.9f)
             {
-                AsyncOperation loadOp = SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i]);
-                while (!loadOp.isDone)
+                
+                _loadingBar.fillAmount = 1f;
+                SaveGameManager.Instance.ContinueText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    _loadingBar.fillAmount = loadOp.progress;
-                    yield return null;
+                    // Activate the Scene
+                    StartCoroutine(nameof(LoadingAdditiveScenes));
+                    loadOp.allowSceneActivation = true;
                 }
             }
-            else
-            {
-                AsyncOperation loadOp = SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i], LoadSceneMode.Additive);
-                while (!loadOp.isDone)
-                {
-                    _loadingBar.fillAmount = loadOp.progress;
 
-                    if (loadOp.progress >= 0.9f)
-                    {
-                        _loadingBar.fillAmount = 1f;
-                        SaveGameManager.Instance.ContinueText.SetActive(true);
-                        if (Input.GetKeyDown(KeyCode.Space))
-                            // Activate the Scene
-                            loadOp.allowSceneActivation = true;
-                    }
-                    yield return null;
-                }
+            yield return null;
+        }
+
+        SceneManager.UnloadSceneAsync("LoadingScreen");
+        yield return null;
+    }
+
+    private IEnumerator LoadingAdditiveScenes()
+    {
+        for (int i = 1; i < _levelObjects.activeScenes.Length; i++)
+        {
+            AsyncOperation loadOp = SceneManager.LoadSceneAsync(_levelObjects.activeScenes[i], LoadSceneMode.Additive);
+
+            while (!loadOp.isDone)
+            {
+                _loadingBar.fillAmount = loadOp.progress;
+                yield return null;
             }
         }
-        SceneManager.UnloadSceneAsync("LoadingScreen");
     }
 }

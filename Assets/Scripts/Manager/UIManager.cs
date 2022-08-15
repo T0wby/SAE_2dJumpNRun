@@ -133,6 +133,8 @@ public class UIManager : MonoBehaviour
 
     public void ChangeDiamondCount(int value)
     {
+        if (_diamondCount is null)
+            return;
         _diamondCount.text = value.ToString();
     }
 
