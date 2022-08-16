@@ -14,6 +14,8 @@ public class SaveGameManager : MonoBehaviour
     [SerializeField] private Image _loadingBar;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _continueText;
+    [SerializeField] private Lever _lever;
+    [SerializeField] private Door _door;
 
     private string _saveGameSettings;
     private string _saveGameObjects;
@@ -117,6 +119,10 @@ public class SaveGameManager : MonoBehaviour
             _player.transform.SetPositionAndRotation(_levelObjects.playerPosition, _levelObjects.playerRotation);
             _player.GetComponent<PlayerHealth>().Health = _levelObjects.health;
         }
+        if (_lever != null)
+            _lever.SetState(_levelObjects.leverPulled);
+        if (_door != null)
+            _door.SetState(_levelObjects.doorOpen);
 
         GameManager.Instance.DiamondCount = _levelObjects.diamondCount;
     }

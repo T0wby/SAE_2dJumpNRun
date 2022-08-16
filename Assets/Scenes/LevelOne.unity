@@ -782,6 +782,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7002607188081202077}
+        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+        m_MethodName: SaveState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 751783734}
+        m_TargetAssemblyTypeName: Lever, Assembly-CSharp
+        m_MethodName: SaveState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &441767110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3136,6 +3160,9 @@ MonoBehaviour:
   _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
   _loadingBar: {fileID: 2654330659503610487, guid: 3695f75cd1a0bb24f9dcde557bf734a7, type: 3}
   _player: {fileID: 6404189300152201977}
+  _continueText: {fileID: 0}
+  _lever: {fileID: 751783734}
+  _door: {fileID: 7002607188081202077}
 --- !u!4 &1043245858
 Transform:
   m_ObjectHideFlags: 0
@@ -4526,6 +4553,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7161259699890331867, guid: c0ee1fa76ecb6e046b3e569e6d0a9eda, type: 3}
       propertyPath: _Door
+      value: 
+      objectReference: {fileID: 7002607188081202077}
+    - target: {fileID: 7161259699890331867, guid: c0ee1fa76ecb6e046b3e569e6d0a9eda, type: 3}
+      propertyPath: _door
       value: 
       objectReference: {fileID: 7002607188081202077}
     - target: {fileID: 7978012980124090440, guid: c0ee1fa76ecb6e046b3e569e6d0a9eda, type: 3}

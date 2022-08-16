@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private bool _loadingSave = false;
     private int _diamondCount = 0;
 
-    [SerializeField] private SO_LevelObjects _LevelObjects;
+    [SerializeField] private SO_LevelObjects _levelObjects;
 
 
 
@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    private void Update()
+    {
+        Debug.Log("_levelObjects.leverPulled: " + _levelObjects.leverPulled);
+    }
     public void PauseGame()
     {
         if (_isPaused)
@@ -63,6 +67,6 @@ public class GameManager : MonoBehaviour
 
     public void SaveDiamonds()
     {
-        _LevelObjects.diamondCount = _diamondCount;
+        _levelObjects.diamondCount = _diamondCount;
     }
 }

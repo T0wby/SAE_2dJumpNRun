@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doorOpen: 0
+  _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
 --- !u!1 &6728305767461916212
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a764bb4e86261f49a29916fbde58148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Door: {fileID: 0}
+  _Door: {fileID: 7776753986008460423}
   _Lever: {fileID: 0}
   _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}

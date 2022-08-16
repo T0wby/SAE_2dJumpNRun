@@ -262,3 +262,4 @@ MonoBehaviour:
   _Door: {fileID: 0}
   _openDoorColor: {r: 0, g: 1, b: 0, a: 1}
   _switchedLeverColor: {r: 0, g: 1, b: 0, a: 1}
+  _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}

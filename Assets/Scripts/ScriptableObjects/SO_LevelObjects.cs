@@ -10,5 +10,7 @@ public class SO_LevelObjects : ScriptableObject
     public Quaternion playerRotation;
     public int health;
     public int diamondCount;
+    public bool leverPulled;
+    public bool doorOpen;
     public string[] activeScenes;
 }

@@ -428,6 +428,8 @@ MonoBehaviour:
   _loadingBar: {fileID: 0}
   _player: {fileID: 6404189300095309137, guid: 474045f1d1a748546878988f9baa5079, type: 3}
   _continueText: {fileID: 0}
+  _lever: {fileID: 0}
+  _door: {fileID: 0}
 --- !u!4 &486816829
 Transform:
   m_ObjectHideFlags: 0
@@ -741,7 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ca46dfb9f33b04a927fd22a7ee7e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
+  _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
 --- !u!4 &1161245812
 Transform:
   m_ObjectHideFlags: 0
