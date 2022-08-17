@@ -16,6 +16,8 @@ public class Lever : MonoBehaviour
     private void Awake()
     {
         _pivot = GetComponentInParent<Transform>();
+        _leverPulled = _levelObjects.leverPulled;
+        SetState(_leverPulled);
     }
 
     

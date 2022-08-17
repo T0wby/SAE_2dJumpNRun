@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class SaveGameManager : MonoBehaviour
 {
@@ -13,9 +14,12 @@ public class SaveGameManager : MonoBehaviour
     [SerializeField] private SO_LevelObjects _levelObjects;
     [SerializeField] private Image _loadingBar;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Player _playerScript;
+    [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private GameObject _continueText;
     [SerializeField] private Lever _lever;
     [SerializeField] private Door _door;
+
 
     private string _saveGameSettings;
     private string _saveGameObjects;
@@ -44,7 +48,8 @@ public class SaveGameManager : MonoBehaviour
         }
     }
 
-    public void Save()
+    #region Load And Save
+    private void Save()
     {
         Debug.Log("SAVED GAME.....");
         _saveGameSettings = JsonUtility.ToJson(_gameSettings, true);
@@ -126,7 +131,6 @@ public class SaveGameManager : MonoBehaviour
 
         GameManager.Instance.DiamondCount = _levelObjects.diamondCount;
     }
-
     private IEnumerator LoadingScreenStart()
     {
         AsyncOperation loadOp = SceneManager.LoadSceneAsync("LoadingScreen");
@@ -140,5 +144,17 @@ public class SaveGameManager : MonoBehaviour
             yield return null;
         }
         yield return null;
+    }
+    #endregion
+
+    public void SaveAllData()
+    {
+        GameManager.Instance.SaveDiamonds();
+        _playerHealth.SaveHealth();
+        _playerScript.SavePlayerPos();
+        _lever.SaveState();
+        _door.SaveState();
+
+        Save();
     }
 }

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private bool _loadSeveralScenes;
     private bool _loadingSave = false;
     private int _diamondCount = 0;
+    private bool _doorOpen;
 
     [SerializeField] private SO_LevelObjects _levelObjects;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     public bool JumpBufferOn { get { return _jumpBufferOn; } set { _jumpBufferOn = value; } }
     public bool LoadSeveralScenes { get { return _loadSeveralScenes; } set { _loadSeveralScenes = value; } }
     public bool LoadingSave { get { return _loadingSave; } set { _loadingSave = value; } }
+    public bool DoorOpen { get { return _doorOpen; } set { _doorOpen = value; } }
     public int DiamondCount { get { return _diamondCount; } set { _diamondCount = value; UIManager.Instance.onDiamondCountChange.Invoke(_diamondCount); } }
     private void Awake()
     {
@@ -49,10 +51,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    private void Update()
-    {
-        Debug.Log("_levelObjects.leverPulled: " + _levelObjects.leverPulled);
-    }
     public void PauseGame()
     {
         if (_isPaused)

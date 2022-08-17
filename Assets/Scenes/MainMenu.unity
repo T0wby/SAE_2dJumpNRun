@@ -427,6 +427,8 @@ MonoBehaviour:
   _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
   _loadingBar: {fileID: 0}
   _player: {fileID: 6404189300095309137, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+  _playerScript: {fileID: 0}
+  _playerHealth: {fileID: 0}
   _continueText: {fileID: 0}
   _lever: {fileID: 0}
   _door: {fileID: 0}
@@ -1626,8 +1628,9 @@ MonoBehaviour:
   _jumpBufferToggle: {fileID: 1267434762}
   _diamondCount: {fileID: 0}
   _healthCount: {fileID: 0}
-  _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
-  _GameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
+  _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
+  _defaultLevelObjects: {fileID: 11400000, guid: 2fdeb3d3e3638324c81325094a2bf8fe, type: 2}
+  _gameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
   onDiamondCountChange:
     m_PersistentCalls:
       m_Calls:

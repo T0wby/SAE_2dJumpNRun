@@ -21,8 +21,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Toggle _jumpBufferToggle;
     [SerializeField] private TMP_Text _diamondCount;
     [SerializeField] private TMP_Text _healthCount;
-    [SerializeField] private SO_LevelObjects _LevelObjects;
-    [SerializeField] private SO_GameSettings _GameSettings;
+    [SerializeField] private SO_LevelObjects _levelObjects;
+    [SerializeField] private SO_LevelObjects _defaultLevelObjects;
+    [SerializeField] private SO_GameSettings _gameSettings;
     private bool _inMenu;
 
     public UnityEvent<int> onDiamondCountChange;
@@ -68,8 +69,8 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.IsPaused = false;
         GameManager.Instance.PauseGame();
         SceneManager.LoadSceneAsync("MainMenu");
-        _LevelObjects.activeScenes[0] = null;
-        _LevelObjects.activeScenes[1] = null;
+        _levelObjects.activeScenes[0] = null;
+        _levelObjects.activeScenes[1] = null;
         SetGameSettings();
     }
 
@@ -90,8 +91,9 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         GameManager.Instance.LoadingSave = false;
+        SetDefaultSettings();
         SceneManager.LoadSceneAsync("LoadingScreen");
-        _LevelObjects.activeScenes[0] = "LevelOne";
+        _levelObjects.activeScenes[0] = "LevelOne";
     }
 
     public void BackToMainMenu()
@@ -108,27 +110,27 @@ public class UIManager : MonoBehaviour
 
     public void ChangeCoyoteValue(bool value)
     {
-        _GameSettings.coyoteToggle = value;
+        _gameSettings.coyoteToggle = value;
     }
 
     public void ChangeDoubleJumpValue(bool value)
     {
-        _GameSettings.doubleJumpToggle = value;
+        _gameSettings.doubleJumpToggle = value;
     }
 
     public void ChangeWallSlideValue(bool value)
     {
-        _GameSettings.wallSlideToggle = value;
+        _gameSettings.wallSlideToggle = value;
     }
 
     public void ChangeWallJumpValue(bool value)
     {
-        _GameSettings.wallJumpToggle = value;
+        _gameSettings.wallJumpToggle = value;
     }
 
     public void ChangeJumpBufferValue(bool value)
     {
-        _GameSettings.jumpBufferToggle = value;
+        _gameSettings.jumpBufferToggle = value;
     }
 
     public void ChangeDiamondCount(int value)
@@ -145,10 +147,21 @@ public class UIManager : MonoBehaviour
 
     private void SetGameSettings()
     {
-        _coyoteToggle.isOn = _GameSettings.coyoteToggle;
-        _doubleJumpToggle.isOn = _GameSettings.doubleJumpToggle;
-        _wallSlideToggle.isOn = _GameSettings.wallSlideToggle;
-        _wallJumpToggle.isOn = _GameSettings.wallJumpToggle;
-        _jumpBufferToggle.isOn = _GameSettings.jumpBufferToggle;
+        _coyoteToggle.isOn = _gameSettings.coyoteToggle;
+        _doubleJumpToggle.isOn = _gameSettings.doubleJumpToggle;
+        _wallSlideToggle.isOn = _gameSettings.wallSlideToggle;
+        _wallJumpToggle.isOn = _gameSettings.wallJumpToggle;
+        _jumpBufferToggle.isOn = _gameSettings.jumpBufferToggle;
+    }
+
+    private void SetDefaultSettings()
+    {
+        _levelObjects.playerPosition = _defaultLevelObjects.playerPosition;
+        _levelObjects.playerRotation = _defaultLevelObjects.playerRotation;
+        _levelObjects.health = _defaultLevelObjects.health;
+        _levelObjects.diamondCount = _defaultLevelObjects.diamondCount;
+        _levelObjects.leverPulled = _defaultLevelObjects.leverPulled;
+        _levelObjects.doorOpen = _defaultLevelObjects.doorOpen;
+        _levelObjects.activeScenes = _defaultLevelObjects.activeScenes;
     }
 }

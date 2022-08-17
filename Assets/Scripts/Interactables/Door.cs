@@ -9,6 +9,12 @@ public class Door : MonoBehaviour
 
     public bool DoorOpen { get { return _doorOpen; } set { _doorOpen = value; } }
 
+    private void Awake()
+    {
+        _doorOpen = _levelObjects.doorOpen;
+        SetState(_doorOpen);
+    }
+
     public void OpenDoor()
     {
         Destroy(this.gameObject);

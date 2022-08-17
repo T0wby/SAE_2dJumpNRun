@@ -6,11 +6,16 @@ using UnityEngine;
 
 public class SO_LevelObjects : ScriptableObject
 {
+    [Header("Player")]
     public Vector3 playerPosition;
     public Quaternion playerRotation;
     public int health;
     public int diamondCount;
+
+    [Header("Level")]
     public bool leverPulled;
     public bool doorOpen;
+
+    [Header("Scenes")]
     public string[] activeScenes;
 }

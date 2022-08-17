@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc849d6a6cdbf5d4ab87b1d670d2b8f2, type: 3}
-  m_Name: LevelObjects
+  m_Name: Default_LO
   m_EditorClassIdentifier: 
   playerPosition: {x: -3.46, y: -3.483924, z: 0}
   playerRotation: {x: 0, y: 0, z: 0, w: 0}

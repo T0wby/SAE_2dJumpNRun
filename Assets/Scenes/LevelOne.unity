@@ -734,69 +734,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 767253924}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SaveDiamonds
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6404189300152201979}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: SaveHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6404189300152201976}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: SavePlayerPos
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1043245857}
         m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
-        m_MethodName: Save
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7002607188081202077}
-        m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: SaveState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 751783734}
-        m_TargetAssemblyTypeName: Lever, Assembly-CSharp
-        m_MethodName: SaveState
+        m_MethodName: SaveAllData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1317,7 +1257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ca46dfb9f33b04a927fd22a7ee7e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
+  _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
 --- !u!4 &767253925
 Transform:
   m_ObjectHideFlags: 0
@@ -3160,6 +3100,8 @@ MonoBehaviour:
   _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
   _loadingBar: {fileID: 2654330659503610487, guid: 3695f75cd1a0bb24f9dcde557bf734a7, type: 3}
   _player: {fileID: 6404189300152201977}
+  _playerScript: {fileID: 6404189300152201976}
+  _playerHealth: {fileID: 6404189300152201979}
   _continueText: {fileID: 0}
   _lever: {fileID: 751783734}
   _door: {fileID: 7002607188081202077}
@@ -3321,8 +3263,9 @@ MonoBehaviour:
   _jumpBufferToggle: {fileID: 1461647737}
   _diamondCount: {fileID: 1966181736}
   _healthCount: {fileID: 735191685}
-  _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
-  _GameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
+  _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
+  _defaultLevelObjects: {fileID: 11400000, guid: 2fdeb3d3e3638324c81325094a2bf8fe, type: 2}
+  _gameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
   onDiamondCountChange:
     m_PersistentCalls:
       m_Calls:
@@ -4853,7 +4796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6404189300095309149, guid: 474045f1d1a748546878988f9baa5079, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.99
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 6404189300095309149, guid: 474045f1d1a748546878988f9baa5079, type: 3}
       propertyPath: m_LocalPosition.z
