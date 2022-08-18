@@ -1,7 +1,7 @@
 {
     "playerPosition": {
-        "x": 39.03622817993164,
-        "y": -3.475656747817993,
+        "x": 47.19440460205078,
+        "y": -3.4772913455963136,
         "z": 0.0
     },
     "playerRotation": {
@@ -10,7 +10,7 @@
         "z": 0.0,
         "w": 1.0
     },
-    "health": 10,
+    "health": 2,
     "diamondCount": 1,
     "leverPulled": true,
     "doorOpen": true,

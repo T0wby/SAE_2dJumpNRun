@@ -3,5 +3,5 @@
     "doubleJumpToggle": true,
     "wallSlideToggle": true,
     "wallJumpToggle": true,
-    "jumpBufferToggle": false
+    "jumpBufferToggle": true
 }
