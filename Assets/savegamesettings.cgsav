@@ -3,5 +3,7 @@
     "doubleJumpToggle": true,
     "wallSlideToggle": true,
     "wallJumpToggle": true,
-    "jumpBufferToggle": true
+    "jumpBufferToggle": true,
+    "displayMode": 0,
+    "volume": -9.003334999084473
 }

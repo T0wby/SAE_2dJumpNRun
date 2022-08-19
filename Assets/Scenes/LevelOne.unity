@@ -3256,6 +3256,9 @@ MonoBehaviour:
   _mainMenu: {fileID: 1437171653}
   _optionsMenu: {fileID: 696531213}
   _menuBackground: {fileID: 122648994}
+  _volMixer: {fileID: 24100000, guid: 8e88a9bf48232fb4db3280db3397ae26, type: 2}
+  _volSlider: {fileID: 6469825843281422856}
+  displayDropdown: {fileID: 6469825843281422855}
   _coyoteToggle: {fileID: 1474789273}
   _doubleJumpToggle: {fileID: 965227748}
   _wallSlideToggle: {fileID: 1997431777}
@@ -4993,6 +4996,28 @@ PrefabInstance:
       objectReference: {fileID: 1143122831}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+--- !u!114 &6469825843281422855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6469825842782561017, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+  m_PrefabInstance: {fileID: 6469825843281422854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6469825843281422856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6469825841528113990, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+  m_PrefabInstance: {fileID: 6469825843281422854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7002607188081202073
 PrefabInstance:
   m_ObjectHideFlags: 0

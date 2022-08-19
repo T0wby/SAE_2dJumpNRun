@@ -1,7 +1,7 @@
 {
     "playerPosition": {
-        "x": 47.19440460205078,
-        "y": -3.4772913455963136,
+        "x": -3.4600000381469728,
+        "y": -0.2888070344924927,
         "z": 0.0
     },
     "playerRotation": {
@@ -10,12 +10,12 @@
         "z": 0.0,
         "w": 1.0
     },
-    "health": 2,
-    "diamondCount": 1,
-    "leverPulled": true,
-    "doorOpen": true,
+    "health": 10,
+    "diamondCount": 0,
+    "leverPulled": false,
+    "doorOpen": false,
     "activeScenes": [
         "LevelOne",
-        "LevelTwo"
+        ""
     ]
 }

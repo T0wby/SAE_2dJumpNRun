@@ -17,3 +17,5 @@ MonoBehaviour:
   wallSlideToggle: 1
   wallJumpToggle: 1
   jumpBufferToggle: 1
+  displayMode: 0
+  volume: -10

@@ -12,4 +12,6 @@ public class SO_GameSettings : ScriptableObject
     public bool wallSlideToggle = true;
     public bool wallJumpToggle = true;
     public bool jumpBufferToggle = true;
+    public int displayMode;
+    public float volume;
 }

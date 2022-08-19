@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _menuBackground;
+    [SerializeField] private AudioMixer _volMixer;
+    [SerializeField] private Slider _volSlider;
+    [SerializeField] private TMP_Dropdown displayDropdown;
     [SerializeField] private Toggle _coyoteToggle;
     [SerializeField] private Toggle _doubleJumpToggle;
     [SerializeField] private Toggle _wallSlideToggle;
@@ -108,6 +112,7 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region Options
     public void ChangeCoyoteValue(bool value)
     {
         _gameSettings.coyoteToggle = value;
@@ -133,6 +138,50 @@ public class UIManager : MonoBehaviour
         _gameSettings.jumpBufferToggle = value;
     }
 
+    public void SetVolume(float volume)
+    {
+        _volMixer.SetFloat("volume", volume);
+        _gameSettings.volume = volume;
+    }
+
+    public void SetDisplayMode()
+    {
+        switch (displayDropdown.value)
+        {
+            case 0:
+                Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                break;
+            case 1:
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+                break;
+            case 2:
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                break;
+            default:
+                break;
+        }
+        _gameSettings.displayMode = displayDropdown.value;
+    }
+
+    private void SetDisplayMode(int value)
+    {
+        switch (value)
+        {
+            case 0:
+                Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                break;
+            case 1:
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+                break;
+            case 2:
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                break;
+            default:
+                break;
+        }
+    }
+    #endregion
+
     public void ChangeDiamondCount(int value)
     {
         if (_diamondCount is null)
@@ -152,6 +201,9 @@ public class UIManager : MonoBehaviour
         _wallSlideToggle.isOn = _gameSettings.wallSlideToggle;
         _wallJumpToggle.isOn = _gameSettings.wallJumpToggle;
         _jumpBufferToggle.isOn = _gameSettings.jumpBufferToggle;
+        SetDisplayMode(_gameSettings.displayMode);
+        _volMixer.SetFloat("volume", _gameSettings.volume);
+        _volSlider.value = _gameSettings.volume;
     }
 
     private void SetDefaultSettings()
