@@ -15,6 +15,8 @@ public class SO_LevelObjects : ScriptableObject
     [Header("Level")]
     public bool leverPulled;
     public bool doorOpen;
+    public List<string> collectedDiamonds;
+    public Diamond[] maxCountDiamonds;
 
     [Header("Scenes")]
     public string[] activeScenes;

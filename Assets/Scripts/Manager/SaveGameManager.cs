@@ -123,11 +123,21 @@ public class SaveGameManager : MonoBehaviour
         {
             _player.transform.SetPositionAndRotation(_levelObjects.playerPosition, _levelObjects.playerRotation);
             _player.GetComponent<PlayerHealth>().Health = _levelObjects.health;
+            _player.GetComponent<PlayerHealth>().CheckHealth(_levelObjects.health);
         }
         if (_lever != null)
             _lever.SetState(_levelObjects.leverPulled);
         if (_door != null)
             _door.SetState(_levelObjects.doorOpen);
+
+        foreach (string name in _levelObjects.collectedDiamonds)
+        {
+            GameObject diamond = GameObject.Find(name);
+            if (diamond)
+            {
+                Destroy(diamond);
+            }
+        }
 
         GameManager.Instance.DiamondCount = _levelObjects.diamondCount;
     }
