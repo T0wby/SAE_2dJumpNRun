@@ -750,7 +750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -936,7 +936,11 @@ MonoBehaviour:
   _levelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
   _loadingBar: {fileID: 405500732}
   _player: {fileID: 6404189300095309137, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+  _playerScript: {fileID: 0}
+  _playerHealth: {fileID: 0}
   _continueText: {fileID: 384943790}
+  _lever: {fileID: 0}
+  _door: {fileID: 0}
 --- !u!4 &1569369703
 Transform:
   m_ObjectHideFlags: 0
