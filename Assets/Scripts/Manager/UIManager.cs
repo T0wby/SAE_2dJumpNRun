@@ -187,6 +187,7 @@ public class UIManager : MonoBehaviour
         if (_diamondCount is null)
             return;
         _diamondCount.text = value.ToString();
+        _levelObjects.diamondCount = value;
     }
 
     public void ChangeLifeCount(int value)
@@ -212,8 +213,10 @@ public class UIManager : MonoBehaviour
         _levelObjects.playerRotation = _defaultLevelObjects.playerRotation;
         _levelObjects.health = _defaultLevelObjects.health;
         _levelObjects.diamondCount = _defaultLevelObjects.diamondCount;
+        GameManager.Instance.DiamondCount = _defaultLevelObjects.diamondCount;
         _levelObjects.leverPulled = _defaultLevelObjects.leverPulled;
         _levelObjects.doorOpen = _defaultLevelObjects.doorOpen;
         _levelObjects.activeScenes = _defaultLevelObjects.activeScenes;
+        _levelObjects.collectedDiamonds.Clear();
     }
 }

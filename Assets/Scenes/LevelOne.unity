@@ -3472,7 +3472,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1143122831}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ChangeDiamondCount
-        m_Mode: 3
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5640,6 +5640,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1892957340}
     m_Modifications:
+    - target: {fileID: 6469825841528113990, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1143122831}
+    - target: {fileID: 6469825841528113990, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469825841528113990, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6469825841955080679, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5743,6 +5755,18 @@ PrefabInstance:
     - target: {fileID: 6469825842601677579, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
       propertyPath: m_Name
       value: OptionsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469825842782561017, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1143122831}
+    - target: {fileID: 6469825842782561017, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetDisplayMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469825842782561017, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6469825842869853922, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

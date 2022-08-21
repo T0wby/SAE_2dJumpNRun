@@ -1,7 +1,7 @@
 {
     "playerPosition": {
-        "x": 58.16071701049805,
-        "y": -0.4939272105693817,
+        "x": 46.30455017089844,
+        "y": -3.4772939682006838,
         "z": 0.0
     },
     "playerRotation": {
@@ -20,13 +20,13 @@
     ],
     "maxCountDiamonds": [
         {
-            "instanceID": -106210
+            "instanceID": -32462
         },
         {
-            "instanceID": -105500
+            "instanceID": -31752
         },
         {
-            "instanceID": -105452
+            "instanceID": -31704
         }
     ],
     "activeScenes": [
