@@ -2923,7 +2923,7 @@ MonoBehaviour:
   _menuBackground: {fileID: 1548011652}
   _volMixer: {fileID: 24100000, guid: 8e88a9bf48232fb4db3280db3397ae26, type: 2}
   _volSlider: {fileID: 2119116200}
-  displayDropdown: {fileID: 0}
+  displayDropdown: {fileID: 1709344213}
   _coyoteToggle: {fileID: 1267434766}
   _doubleJumpToggle: {fileID: 1267434765}
   _wallSlideToggle: {fileID: 1267434764}
@@ -3107,6 +3107,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649339979}
   m_CullTransparentMesh: 1
+--- !u!114 &1709344213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6469825842782561017, guid: 809fa4aa80c85974780a3f81855ba6ee, type: 3}
+  m_PrefabInstance: {fileID: 1267434760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1760205429
 GameObject:
   m_ObjectHideFlags: 0

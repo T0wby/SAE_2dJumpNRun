@@ -51,7 +51,6 @@ public class SaveGameManager : MonoBehaviour
     #region Load And Save
     private void Save()
     {
-        Debug.Log("SAVED GAME.....");
         _saveGameSettings = JsonUtility.ToJson(_gameSettings, true);
         _saveGameObjects = JsonUtility.ToJson(_levelObjects, true);
 
