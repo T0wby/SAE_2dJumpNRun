@@ -5,18 +5,22 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    [SerializeField] private Door _Door;
-    [SerializeField] private Lever _Lever;
-    [SerializeField] private SO_LevelObjects _LevelObjects;
+    [SerializeField] private Door _door;
+    [SerializeField] private Lever _lever;
+    [SerializeField] private SO_LevelObjects _levelObjects;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && _Lever.LeverPulled)
+        if (collision.gameObject.CompareTag("Player") && _lever.LeverPulled)
         {
-            _Door.DoorOpen = true;
-            _Door.OpenDoor();
+            _door.DoorOpen = true;
+            _door.OpenDoor();
             SceneManager.LoadScene("LevelTwo", LoadSceneMode.Additive);
-            _LevelObjects.activeScenes[1] = "LevelTwo";
+            _levelObjects.activeScenes[1] = "LevelTwo";
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            _door.DoorText.SetActive(true);
         }
     }
 }

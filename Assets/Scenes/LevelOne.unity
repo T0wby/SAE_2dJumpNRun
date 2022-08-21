@@ -5815,6 +5815,10 @@ PrefabInstance:
       propertyPath: _Lever
       value: 
       objectReference: {fileID: 751783734}
+    - target: {fileID: 428477936366904801, guid: a3edadc1a49cb3e478172ad4f4fcaeb8, type: 3}
+      propertyPath: _lever
+      value: 
+      objectReference: {fileID: 751783734}
     - target: {fileID: 4670856695794773414, guid: a3edadc1a49cb3e478172ad4f4fcaeb8, type: 3}
       propertyPath: m_Name
       value: Door

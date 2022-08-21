@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 2768
+  controlID: 7673
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 2746
+  controlID: 7674
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 2747
+  controlID: 7675
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ee70ffff2c7bffffd696ffff2c98ffff3698fffff89bffff6a9cffffea9dffffb2c9ffffb8c9ffffbec9ffffc8c9ffff6ad5ffff40e7ffff7aedffff82efffff2cf0ffff64f2ffff72f2ffffb2f5ffffbef5ffff3ef7ffff46f7ffff28fbffff24bd0000b4bd00006ceb00001aec000094ef000024f000004c0c0100900c01009a0c0100da0f0100de0f0100
+      m_ExpandedIDs: d02bffffec2dffff5c30ffff6230ffffc630ffff5e50ffff0851ffff4053ffff4e53ffff8e56ffff9a56ffff1a58ffff2258fffffa5cffffee70ffff2c7bffffd696ffff2c98ffff3698fffff89bffff6a9cffffea9dffffb2c9ffffb8c9ffffbec9ffffc8c9ffff6ad5ffff40e7ffff7aedffff82efffff2cf0ffff64f2ffff72f2ffffb2f5ffffbef5ffff3ef7ffff46f7ffff28fbffff24bd0000b4bd00006ceb00001aec000094ef000024f000004c0c0100900c01009a0c0100d80e0100180f01001e0f01002a0f0100da0f0100f82d0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -627,7 +627,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 2724
+  controlID: 7627
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -696,21 +696,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Prefabs/Interactables
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Prefabs/Interactables
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\tobia\Documents\Tobi\SAE\UnityProjekts\2dJumpNRun
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 95}
-    m_SelectedIDs: bc730000
-    m_LastClickedID: 29628
+    scrollPos: {x: 0, y: 63}
+    m_SelectedIDs: e4730000
+    m_LastClickedID: 29668
     m_ExpandedIDs: 00000000bc730000be730000c0730000fc73000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -739,7 +739,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000bc730000be730000c073000000ca9a3b
+    m_ExpandedIDs: 00000000bc730000c0730000fc73000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -764,8 +764,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 2a0f0100
-    m_LastClickedInstanceID: 69418
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000ac6f0000aa6f000000000000
     m_RenameOverlay:
@@ -911,8 +911,8 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 69418
-  m_LastVerticalScrollValue: 342
+  m_LastInspectedObjectInstanceID: -1
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
