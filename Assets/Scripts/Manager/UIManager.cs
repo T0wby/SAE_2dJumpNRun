@@ -144,6 +144,13 @@ public class UIManager : MonoBehaviour
         _gameSettings.volume = volume;
     }
 
+    public void SaveVolume()
+    {
+        float value;
+        _volMixer.GetFloat("volume", out value);
+        _gameSettings.volume = value;
+    }
+
     public void SetDisplayMode()
     {
         switch (displayDropdown.value)
@@ -209,6 +216,7 @@ public class UIManager : MonoBehaviour
 
     private void SetDefaultSettings()
     {
+        // LevelObjects
         _levelObjects.playerPosition = _defaultLevelObjects.playerPosition;
         _levelObjects.playerRotation = _defaultLevelObjects.playerRotation;
         _levelObjects.health = _defaultLevelObjects.health;

@@ -3301,6 +3301,8 @@ MonoBehaviour:
   _continueText: {fileID: 0}
   _lever: {fileID: 751783734}
   _door: {fileID: 7002607188081202077}
+  _volMixer: {fileID: 24100000, guid: 8e88a9bf48232fb4db3280db3397ae26, type: 2}
+  _volSlider: {fileID: 6469825843281422856}
 --- !u!4 &1043245858
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.Audio;
 
 public class SaveGameManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class SaveGameManager : MonoBehaviour
     [SerializeField] private GameObject _continueText;
     [SerializeField] private Lever _lever;
     [SerializeField] private Door _door;
+    [SerializeField] private AudioMixer _volMixer;
+    [SerializeField] private Slider _volSlider;
 
 
     private string _saveGameSettings;
@@ -129,6 +132,12 @@ public class SaveGameManager : MonoBehaviour
         if (_door != null)
             _door.SetState(_levelObjects.doorOpen);
 
+        if (_volSlider != null)
+            _volSlider.value = _gameSettings.volume;
+
+        if(_volMixer != null)
+            _volMixer.SetFloat("volume", _gameSettings.volume);
+
         foreach (string name in _levelObjects.collectedDiamonds)
         {
             GameObject diamond = GameObject.Find(name);
@@ -163,6 +172,7 @@ public class SaveGameManager : MonoBehaviour
         _playerScript.SavePlayerPos();
         _lever.SaveState();
         _door.SaveState();
+        UIManager.Instance.SaveVolume();
 
         Save();
     }

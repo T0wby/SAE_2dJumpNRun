@@ -1,7 +1,7 @@
 {
     "playerPosition": {
-        "x": 57.17243194580078,
-        "y": -0.49392399191856387,
+        "x": -0.44999995827674868,
+        "y": -3.48392391204834,
         "z": 0.0
     },
     "playerRotation": {
@@ -10,27 +10,24 @@
         "z": 0.0,
         "w": 1.0
     },
-    "health": 2,
-    "diamondCount": 2,
-    "leverPulled": true,
-    "doorOpen": true,
-    "collectedDiamonds": [
-        "DiamondBlue",
-        "DiamondBlueTutorial"
-    ],
+    "health": 4,
+    "diamondCount": 0,
+    "leverPulled": false,
+    "doorOpen": false,
+    "collectedDiamonds": [],
     "maxCountDiamonds": [
         {
-            "instanceID": -5698
+            "instanceID": -7760
         },
         {
-            "instanceID": -4988
+            "instanceID": -7050
         },
         {
-            "instanceID": -4940
+            "instanceID": -7002
         }
     ],
     "activeScenes": [
         "LevelOne",
-        "LevelTwo"
+        ""
     ]
 }

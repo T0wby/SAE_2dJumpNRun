@@ -643,6 +643,8 @@ MonoBehaviour:
   _continueText: {fileID: 0}
   _lever: {fileID: 0}
   _door: {fileID: 0}
+  _volMixer: {fileID: 24100000, guid: 8e88a9bf48232fb4db3280db3397ae26, type: 2}
+  _volSlider: {fileID: 2119116200}
 --- !u!4 &486816829
 Transform:
   m_ObjectHideFlags: 0
