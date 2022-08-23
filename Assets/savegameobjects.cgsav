@@ -1,7 +1,7 @@
 {
     "playerPosition": {
-        "x": -0.44999995827674868,
-        "y": -3.48392391204834,
+        "x": -7.5236101150512699,
+        "y": -2.4856679439544679,
         "z": 0.0
     },
     "playerRotation": {
@@ -10,20 +10,20 @@
         "z": 0.0,
         "w": 1.0
     },
-    "health": 4,
+    "health": 1,
     "diamondCount": 0,
     "leverPulled": false,
     "doorOpen": false,
     "collectedDiamonds": [],
     "maxCountDiamonds": [
         {
-            "instanceID": -7760
+            "instanceID": -22058
         },
         {
-            "instanceID": -7050
+            "instanceID": -21348
         },
         {
-            "instanceID": -7002
+            "instanceID": -21300
         }
     ],
     "activeScenes": [
