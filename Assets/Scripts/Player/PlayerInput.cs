@@ -13,22 +13,22 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float _wallJumpForceX;
     [SerializeField] private float _wallJumpForceY;
     [SerializeField] private float _wallJumpTime = .2f;
-    [SerializeField] private float _JumpBufferTime = .5f;
+    [SerializeField] private float _jumpBufferTime = .5f;
     [SerializeField] private CapsuleCollider2D _feetCollider;
     [SerializeField] private CircleCollider2D _rightCollider;
     [SerializeField] private CircleCollider2D _leftCollider;
     [SerializeField] private LayerMask _groundLayers;
     [SerializeField] private LayerMask _wallLayers;
-    [SerializeField] private SO_GameSettings _GameSettings;
-
-    private Vector2 _moveVal;
-    private Rigidbody2D _rb;
+    [SerializeField] private SO_GameSettings _gameSettings;
     private bool _longJump = false;
     private bool _doubleJump = false;
     private bool _wallSliding = false;
     private bool _wallJumpRight = false;
     private bool _wallJumpLeft = false;
-    private bool _jumpBufferCountdown = false;
+    private bool _jumpBufferCountdownOn = false;
+
+    private Vector2 _moveVal;
+    private Rigidbody2D _rb;
     private bool _canMove = true;
     private float _coyoteStartTime = .3f;
     private float _coyoteCounter;
@@ -48,8 +48,6 @@ public class PlayerInput : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _playerControls = new PlayerInputActions();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        // Setting the coyote counter to allow jumping when it is off
-        //_coyoteCounter = 0.01f;
     }
 
     private void OnEnable()
@@ -95,13 +93,14 @@ public class PlayerInput : MonoBehaviour
     {
         if (context.started && (_coyoteCounter > 0f || _wallJumpRight || _wallJumpLeft))
         {
-            if (_GameSettings.doubleJumpToggle)
+            if (_gameSettings.doubleJumpToggle)
             {
                 Jump();
                 _doubleJump = true;
             }
             else
             {
+                _doubleJump = false;
                 Jump();
             }
         }
@@ -110,10 +109,10 @@ public class PlayerInput : MonoBehaviour
             _doubleJump = false;
             Jump();
         }
-        else if (context.started && _jumpBufferCounter <= 0 && _GameSettings.jumpBufferToggle)
+        else if (context.started && _jumpBufferCounter <= 0 && _gameSettings.jumpBufferToggle)
         {
-            _jumpBufferCounter = _JumpBufferTime;
-            _jumpBufferCountdown = true;
+            _jumpBufferCounter = _jumpBufferTime;
+            _jumpBufferCountdownOn = true;
         }
 
         _longJump = context.performed;
@@ -214,9 +213,9 @@ public class PlayerInput : MonoBehaviour
 
     private void JumpBuffer()
     {
-        if (_GameSettings.jumpBufferToggle)
+        if (_gameSettings.jumpBufferToggle)
         {
-            if (_jumpBufferCountdown)
+            if (_jumpBufferCountdownOn)
             {
                 _jumpBufferCounter -= Time.deltaTime;
             }
@@ -228,8 +227,8 @@ public class PlayerInput : MonoBehaviour
             if (_jumpBufferCounter > 0 && IsGrounded())
             {
                 Jump();
-                _jumpBufferCountdown = false;
-                if (_GameSettings.doubleJumpToggle)
+                _jumpBufferCountdownOn = false;
+                if (_gameSettings.doubleJumpToggle)
                     _doubleJump = true;
             }
         }
@@ -241,11 +240,10 @@ public class PlayerInput : MonoBehaviour
         return _feetCollider.IsTouchingLayers(_groundLayers);
     }
 
-    // Function for the Coyote jump
     private void Coyote()
     {
         // Checking if the player wants to use the Coyote timer
-        if (_GameSettings.coyoteToggle)
+        if (_gameSettings.coyoteToggle)
         {
             if (IsGrounded())
             {
@@ -256,7 +254,7 @@ public class PlayerInput : MonoBehaviour
                 _coyoteCounter -= Time.deltaTime;
             }
         }
-        else //If it is not true we set the couter depending if we are touching the ground or not to use the logic in the OnJump()
+        else //If it is not true we set the counter depending if we are touching the ground or not to use the logic in the OnJump()
         {
             if (IsGrounded())
             {
@@ -272,7 +270,7 @@ public class PlayerInput : MonoBehaviour
     private void WallSlideCheck()
     {
 
-        if (_GameSettings.wallSlideToggle)
+        if (_gameSettings.wallSlideToggle)
         {
             if (_rightCollider.IsTouchingLayers(_wallLayers) && !IsGrounded() && _moveVal.x > 0)
             {
@@ -295,7 +293,7 @@ public class PlayerInput : MonoBehaviour
 
     private void WallJumpCheck()
     {
-        if (_GameSettings.wallJumpToggle)
+        if (_gameSettings.wallJumpToggle)
         {
             if (_rightCollider.IsTouchingLayers(_wallLayers) && !IsGrounded())
             {

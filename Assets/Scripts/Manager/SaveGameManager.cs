@@ -45,6 +45,7 @@ public class SaveGameManager : MonoBehaviour
 
     private void Start()
     {
+        //When we load into LevelOne and we pressed on Load in the MainMenu, then this will be executed
         if (GameManager.Instance.LoadingSave)
         {
             SetSaveData();
@@ -71,6 +72,7 @@ public class SaveGameManager : MonoBehaviour
 
     }
 
+    //Loading the JSON files and writing their data into the SO's
     private void LoadFromJSON()
     {
         if (!File.Exists(_filePath))
@@ -99,6 +101,7 @@ public class SaveGameManager : MonoBehaviour
 
         LoadFromJSON();
 
+        //Setting bool to differentiate between starting and loading a game
         GameManager.Instance.LoadingSave = true;
 
         if (_levelObjects.activeScenes == null)
@@ -117,6 +120,7 @@ public class SaveGameManager : MonoBehaviour
             GameManager.Instance.LoadSeveralScenes = false;
     }
 
+    // Setting all states relevant, when loading a game
     private void SetSaveData()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -149,6 +153,8 @@ public class SaveGameManager : MonoBehaviour
 
         GameManager.Instance.DiamondCount = _levelObjects.diamondCount;
     }
+
+    //Getting into the loading screen
     private IEnumerator LoadingScreenStart()
     {
         AsyncOperation loadOp = SceneManager.LoadSceneAsync("LoadingScreen");
@@ -165,6 +171,7 @@ public class SaveGameManager : MonoBehaviour
     }
     #endregion
 
+    //Calling all save functions
     public void SaveAllData()
     {
         GameManager.Instance.SaveDiamonds();

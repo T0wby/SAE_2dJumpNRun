@@ -16,6 +16,7 @@ public class DoorTrigger : MonoBehaviour
             _door.DoorOpen = true;
             _door.OpenDoor();
             SceneManager.LoadScene("LevelTwo", LoadSceneMode.Additive);
+            // Adding scene as string to SO incase we save
             _levelObjects.activeScenes[1] = "LevelTwo";
         }
         else if (collision.gameObject.CompareTag("Player"))

@@ -5593,6 +5593,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+      propertyPath: _longJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+      propertyPath: _doubleJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+      propertyPath: _wallSliding
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+      propertyPath: _wallJumpLeft
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+      propertyPath: _wallJumpRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846722086912529996, guid: 474045f1d1a748546878988f9baa5079, type: 3}
+      propertyPath: _jumpBufferCountdown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7897385730734836388, guid: 474045f1d1a748546878988f9baa5079, type: 3}
       propertyPath: onPlayerDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

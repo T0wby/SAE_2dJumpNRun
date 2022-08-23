@@ -340,7 +340,7 @@ MonoBehaviour:
   _wallJumpForceX: 5
   _wallJumpForceY: 10
   _wallJumpTime: 0.2
-  _JumpBufferTime: 0.3
+  _jumpBufferTime: 0.5
   _feetCollider: {fileID: 1851038608835680514}
   _rightCollider: {fileID: 2601617260271296438}
   _leftCollider: {fileID: 6362994757933215981}
@@ -350,7 +350,7 @@ MonoBehaviour:
   _wallLayers:
     serializedVersion: 2
     m_Bits: 64
-  _GameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
+  _gameSettings: {fileID: 11400000, guid: 11764cdcca55bb34da29c1049dd487c5, type: 2}
 --- !u!114 &7897385730734836388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +371,12 @@ MonoBehaviour:
   _yellowSprite: {fileID: -1660186142, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
   _purpleSprite: {fileID: -1457760489, guid: 0ef5a9fd3e4f9ec49b8c186a16a478bb, type: 3}
   _LevelObjects: {fileID: 11400000, guid: 9516448bef8576a479672a35f437728b, type: 2}
+  SpriteColorCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   onPlayerDeath:
     m_PersistentCalls:
       m_Calls:
